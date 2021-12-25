@@ -1,21 +1,28 @@
 <template>
   <div class="main">
-    test
+    <Nav/>
+    <Contents/>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
+import Nav from './Nav.vue';
+import Contents from './Contents.vue';
 
 @Options({
-  props: {
-  }
+  components: {
+    Nav,
+    Contents,
+  },
+  props: {},
 })
+
 export default class Main extends Vue {
-  msg!: string
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import '../assets/css/style.css';
 </style>

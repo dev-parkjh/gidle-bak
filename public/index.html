@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="kr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>페이지를 표시할 수 없습니다. 자바스크립트를 활성화 해주세요.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    html, body, #app {
+      margin: 0px;
+      padding: 0px;
+      height: 100%;
+    }
+
+    :root {
+      -webkit-user-select:none;
+      --app-frame-height: 0px;
+    }
+  </style>
+</head>
+<body>
+<noscript>
+  <strong>페이지를 표시할 수 없습니다. 자바스크립트를 활성화 해주세요.</strong>
+</noscript>
+<div id="app" app-theme="light"></div>
+</body>
 </html>

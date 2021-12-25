@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import Main from './components/Main.vue';
 
 @Options({
@@ -11,7 +11,9 @@ import Main from './components/Main.vue';
     Main,
   },
 })
-export default class App extends Vue {}
+
+export default class App extends Vue {
+}
 </script>
 
 <style>
