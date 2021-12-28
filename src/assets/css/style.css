@@ -3,6 +3,10 @@
   --text-color: #333333;
   --background-color: #fcfcfc;
   --non-active-color: #cccccc;
+  --non-active-status-color: #dddddd;
+  --switch-background-color: #cccccc;
+  --switch-slider-color: #ffffff;
+  --switch-active-color: #1da1f2;
 
 
   --main-color: #000;
@@ -21,6 +25,10 @@
   --text-color: #dddddd;
   --background-color: #1e1e1e;
   --non-active-color: #555555;
+  --non-active-status-color: #333333;
+  --switch-background-color: #555555;
+  --switch-slider-color: #dddddd;
+  --switch-active-color: #3fb36d;
 
 
   --blue: #1da1f2;
@@ -36,11 +44,13 @@
   --title-border-color: rgba(0, 0, 0, 0.6);
 }
 
-
-.main {
-  height: 100%;
-  color: var(--text-color);
-  background-color: var(--background-color);
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .inline-icon {

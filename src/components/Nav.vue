@@ -4,23 +4,29 @@
       <em class="material-icons md-24">folder_open</em><span class="app-name">gidle</span>
     </div>
     <div class="menu">
-      <div v-for="(menu, index) in menuList" :key="index" @click="clickMenu(index)" :class="{active: currentIdx === index}">{{ menu }}</div>
+      <div v-for="(menu, index) in menuList" :key="index" @click="clickMenu(index)" :class="{active: getMenuIdx() === index}">{{ menu }}</div>
     </div>
-    <div class="settings" @click="changeTheme()">
-      <em class="material-icons">settings</em>
+    <div class="settings">
+      <Switch @chkBoxOnclick="setIsServerOn" />
+      <em class="material-icons" @click="changeTheme()">settings</em>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import {Options, Vue} from 'vue-class-component';
-import {customErr, querySelector} from "@/store/CommonUtil";
+import {customErr, querySelector} from "@/assets/ts/CommonUtil";
+import {useStore} from "vuex";
+import Switch from "@/components/Switch.vue";
 
 @Options({
+  components: {Switch},
   props: {}
 })
 
 export default class Nav extends Vue {
+  store = useStore();
+
   currentIdx = 0;
   menuList = ['공유', '사용자', '로그', '정보'];
 
@@ -49,7 +55,15 @@ export default class Nav extends Vue {
   }
 
   clickMenu(index: number): void {
-    this.currentIdx = index;
+    this.store.commit('menu/setMenuIdx', index);
+  }
+
+  getMenuIdx(): number {
+    return this.store.getters['menu/getMenuIdx'];
+  }
+
+  setIsServerOn(isServerOn: boolean): void {
+    this.store.commit('server/setIsServerOn', isServerOn);
   }
 }
 </script>
@@ -93,8 +107,8 @@ export default class Nav extends Vue {
   color: var(--text-color);
 }
 
-.settings i {
-  padding-right: 6px;
+.settings em {
+  padding-left: 10px;
 }
 
 </style>
